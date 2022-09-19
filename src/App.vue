@@ -17,27 +17,8 @@ export default {
 			showAddTask: false,
 		};
 	},
-	created() {
-		this.tasks = [
-			{
-				id: 1,
-				text: 'Doctors Appointment',
-				day: 'March 1st at 2:30pm',
-				reminder: true,
-			},
-			{
-				id: 2,
-				text: 'Meeting at School',
-				day: 'March 3rd at 1:30pm',
-				reminder: true,
-			},
-			{
-				id: 3,
-				text: 'Food Shopping',
-				day: 'March 3rd at 11:00am',
-				reminder: false,
-			},
-		];
+	async created() {
+		this.tasks = await this.fetchTasks();
 	},
 	methods: {
 		addTask(task) {
@@ -56,6 +37,18 @@ export default {
 		toggleAddTask() {
 			this.showAddTask = !this.showAddTask;
 		},
+		async fetchTasks() {
+			const res = await fetch('http://localhost:5000/tasks');
+			const tasks = await res.json();
+
+			return tasks
+		},
+		async fetchTask(id) {
+			const res = await fetch(`http://localhost:5000/tasks/${id}`);
+			const task = await res.json;
+
+			return task
+		}
 	},
 };
 </script>
