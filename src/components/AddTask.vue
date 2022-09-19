@@ -6,7 +6,7 @@
 				type="text"
 				name="text"
 				placeholder="Add Task"
-        v-model="text"
+				v-model="text"
 			/>
 		</div>
 		<div class="form-control">
@@ -15,52 +15,17 @@
 				type="text"
 				name="day"
 				placeholder="Add Day & Time"
-        v-model="day"
-        />
+				v-model="day"
+			/>
 		</div>
 		<div class="form-control form-control-check">
 			<label>Set Reminder</label>
-			<input type="checkbox" name="reminder" v-model="reminder"/>
+			<input type="checkbox" name="reminder" v-model="reminder" />
 		</div>
 
 		<input type="submit" value="Save Task" class="btn btn-block" />
 	</form>
 </template>
-
-<script>
-export default {
-  name: 'AddTask',
-  data() {
-    return {
-      text: '',
-      day: '',
-      reminder: false
-      }
-  },
-  methods: {
-    onSubmit(e) {
-      e.preventDefault();
-
-      if (!this.text) {
-        alert('Please input a task')
-        return
-      }
-
-      const newTask = {
-        // id: Math.floor(Math.random() * 10000),
-        text: this.text,
-        day: this.day,
-        reminder: this.reminder
-      }
-
-      this.$emit('add-task', newTask);
-
-      this.text = '';
-      this.day = '';
-    }
-  }
-}
-</script>
 
 <style scoped>
 .add-form {
@@ -92,3 +57,38 @@ export default {
 	height: 20px;
 }
 </style>
+
+<script>
+export default {
+	name: 'AddTask',
+	data() {
+		return {
+			text: '',
+			day: '',
+			reminder: false,
+		};
+	},
+	methods: {
+		onSubmit(e) {
+			e.preventDefault();
+
+			if (!this.text) {
+				alert('Please input a task');
+				return;
+			}
+
+			const newTask = {
+				// id: Math.floor(Math.random() * 10000),
+				text: this.text,
+				day: this.day,
+				reminder: this.reminder,
+			};
+
+			this.$emit('add-task', newTask);
+
+			this.text = '';
+			this.day = '';
+		},
+	},
+};
+</script>

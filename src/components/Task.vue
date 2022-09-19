@@ -1,13 +1,3 @@
-<script>
-export default {
-	name: 'Task',
-	props: {
-		task: Object,
-	},
-	methods: {},
-};
-</script>
-
 <template>
 	<div
 		@dblclick="$emit('toggle-reminder', task.id)"
@@ -44,3 +34,13 @@ export default {
 	justify-content: space-between;
 }
 </style>
+
+<script>
+export default {
+	name: 'Task',
+	props: {
+		task: Object,
+	},
+	methods: {},
+};
+</script>

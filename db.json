@@ -4,7 +4,7 @@
       "id": "1",
       "text": "Doctors Appointment",
       "day": "March 1st at 2:30pm",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": "2",
@@ -15,8 +15,14 @@
     {
       "text": "Work On React App",
       "day": "Today by 8pm",
-      "reminder": true,
+      "reminder": false,
       "id": "4Wk8Ckn"
+    },
+    {
+      "text": "Call My love ",
+      "day": "Today at 8pm",
+      "reminder": true,
+      "id": "fu7hrqC"
     }
   ]
 }
